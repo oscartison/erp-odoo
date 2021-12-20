@@ -1,9 +1,4 @@
-import logging
-
 from odoo import fields, models, exceptions, api
-
-_logger = logging.getLogger(__name__)
-
 
 class Book(models.Model):
     _name = 'esi.book'
