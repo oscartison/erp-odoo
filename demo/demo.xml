@@ -9,6 +9,9 @@
         <record model="res.partner" id="partner03">
             <field name="name">J.K. Rowling</field>
         </record>
+        <record model="res.company" id="company01">
+            <field name="name">Presses Universitaires de Bruxelles</field>
+        </record>
 
         <record model="esi.book" id="book01">
             <field name="name">Harry Potter, I : Harry Potter à l'école des sorciers</field>
@@ -22,8 +25,8 @@
                 le mage dont personne n'ose prononcer le nom ? Voler à cheval sur des balais,
                 jeter des sorts, combattre les Trolls : Harry Potter se révèle un sorcier vraiment doué.
                 Quand il décide, avec ses amis, d'explorer les moindres recoins de son école,
-                il va se trouver entraîné dans d'extraordinaires aventures."
-                 ]]>
+                il va se trouver entraîné dans d'extraordinaires aventures.
+                ]]>
             </field>
             <field name="date_publication">2017-10-12</field>
             <field name="page_count">320</field>
@@ -36,8 +39,7 @@
             <field name="description">
                 <![CDATA[
                 <h2>Quatrième de couverture</h2>
-                                <br>
-
+                <br>
                 Harry Potter fait une rentrée fracassante en voiture volante à l'école des sorciers.
                 Cette deuxième année ne s'annonce pas de tout repos...
                 surtout depuis qu'une étrange malédiction s'est abattue sur les élèves.
@@ -50,7 +52,6 @@
             <field name="page_count">368</field>
             <field name="authors"
                    eval="[(4, ref('partner03'), None)]"></field>
-
         </record>
 
         <record model="esi.book" id="book03">
@@ -67,13 +68,11 @@
                 Mais Harry est-il vraiment à l'abri du danger qui le menace ?
                 Un livre époustouflant qui vous emportera dans un tourbillon de surprises et d'émotions.
                 ]]>
-
             </field>
             <field name="date_publication">2017-10-12</field>
             <field name="page_count">448</field>
             <field name="authors"
                    eval="[(4, ref('partner03'), None)]"></field>
-
         </record>
 
         <record model="esi.book" id="book04">
@@ -81,13 +80,12 @@
             <field name="description">
                 <![CDATA[
                 <h2>Biographie de l'auteur</h2>
-                  <br>
-              Véritable légende dans l'univers de la SF, l'écrivain américain Frank Herbert (1920 - 1986)
+                <br>
+                Véritable légende dans l'univers de la SF, l'écrivain américain Frank Herbert (1920 - 1986)
                 est mondialement connu pour sa série Dune,
                 vendue à des millions d'exemplaires.
-                En France, ses œuvres majeures ont été publiées dans la collection "" Ailleurs &amp; Demain "
+                En France, ses œuvres majeures ont été publiées dans la collection "Ailleurs &amp; Demain"
                 ]]>
-
             </field>
             <field name="date_publication">2020-10-01</field>
             <field name="page_count">838</field>
@@ -95,6 +93,145 @@
                    eval="[(4, ref('partner02'), None)]"></field>
         </record>
 
+        <record id="coffret_harry_potter" model="product.product">
+            <field name="name">Coffret Harry Potter</field>
+            <field name="books"
+                   eval="[(6, 0, [ref('book01'),ref('book02'),ref('book03')])]"></field>
+            <field name="type">product</field>
+            <field name="standard_price">40</field>
+            <field name="list_price">50</field>
+            <field name="weight">0.7</field>
+            <field name="default_code">Box1</field>
+            <field name="available_in_pos">True</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
 
+        <record id="book_1" model="product.product">
+            <field name="name">book 1</field>
+            <field name="books"
+                   eval="[(4, ref('book01'),None)]"></field>
+            <field name="type">product</field>
+            <field name="standard_price">8.9</field>
+            <field name="list_price">14.9</field>
+            <field name="weight">0.18</field>
+            <field name="default_code">2070584623</field>
+            <field name="available_in_pos">True</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="book_2" model="product.product">
+            <field name="name">book 2</field>
+            <field name="books"
+                   eval="[(4, ref('book02'),None)]"></field>
+            <field name="type">product</field>
+            <field name="standard_price">9.9</field>
+            <field name="list_price">14.9</field>
+            <field name="weight">0.23</field>
+            <field name="default_code">207058464X</field>
+            <field name="available_in_pos">True</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="book_3" model="product.product">
+            <field name="name">book 3</field>
+            <field name="books"
+                   eval="[(4, ref('book03'),None)]"></field>
+            <field name="type">product</field>
+            <field name="standard_price">9.9</field>
+            <field name="list_price">14.9</field>
+            <field name="weight">0.23</field>
+            <field name="default_code">2070584925</field>
+            <field name="available_in_pos">True</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="book_4" model="product.product">
+            <field name="name">book 4</field>
+            <field name="books"
+                   eval="[(4, ref('book04'),None)]"></field>
+            <field name="type">product</field>
+            <field name="standard_price">19.990000000000002</field>
+            <field name="list_price">24.99</field>
+            <field name="weight">0.86</field>
+            <field name="default_code">2221249488</field>
+            <field name="available_in_pos">True</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+
+        <record id="warehouse_bxl" model="stock.warehouse">
+            <field name="partner_id" ref="company01"/>
+            <field name="name">Bruxelles Inventaire</field>
+            <field name="code">BXLWH</field>
+        </record>
+
+        <record id="stock_inventory_data" model="stock.inventory">
+            <field name="name">Starting Inventory</field>
+        </record>
+
+        <record id="stock_inventory_line_2" model="stock.inventory.line">
+            <field name="product_id" ref="coffret_harry_potter"/>
+            <field name="company_id" ref="company01"/>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="inventory_id" ref="stock_inventory_data"/>
+            <field name="product_qty">10</field>
+            <field name="location_id" model="stock.location"
+                   eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"/>
+        </record>
+
+        <record id="stock_inventory_line_3" model="stock.inventory.line">
+            <field name="product_id" ref="book_1"/>
+            <field name="company_id" ref="company01"/>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="inventory_id" ref="stock_inventory_data"/>
+            <field name="product_qty">42</field>
+            <field name="location_id" model="stock.location"
+                   eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"/>
+        </record>
+
+        <record id="stock_inventory_line_4" model="stock.inventory.line">
+            <field name="product_id" ref="book_2"/>
+            <field name="company_id" ref="company01"/>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="inventory_id" ref="stock_inventory_data"/>
+            <field name="product_qty">100</field>
+            <field name="location_id" model="stock.location"
+                   eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"/>
+        </record>
+
+        <record id="stock_inventory_line_5" model="stock.inventory.line">
+            <field name="product_id" ref="book_3"/>
+            <field name="company_id" ref="company01"/>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="inventory_id" ref="stock_inventory_data"/>
+            <field name="product_qty">130</field>
+            <field name="location_id" model="stock.location"
+                   eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"/>
+        </record>
+
+        <record id="stock_inventory_line_6" model="stock.inventory.line">
+            <field name="product_id" ref="book_4"/>
+            <field name="company_id" ref="company01"/>
+            <field name="product_uom_id" ref="uom.product_uom_unit"/>
+            <field name="inventory_id" ref="stock_inventory_data"/>
+            <field name="product_qty">500</field>
+            <field name="location_id" model="stock.location"
+                   eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"/>
+        </record>
+
+        <function model="stock.inventory" name="_action_start">
+            <function eval="[[('state','=','draft'),('id', '=', ref('stock_inventory_data'))]]" model="stock.inventory"
+                      name="search"/>
+        </function>
+
+        <function model="stock.inventory" name="action_validate">
+            <function eval="[[('state','=','confirm'),('id', '=', ref('stock_inventory_data'))]]"
+                      model="stock.inventory"
+                      name="search"/>
+        </function>
     </data>
 </odoo>

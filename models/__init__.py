@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import models,book_model,res_partner_model
+from . import book_model, res_partner_model, res_user_model, product_template

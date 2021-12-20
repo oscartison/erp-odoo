@@ -1,29 +1,20 @@
 <?xml version="1.0"?>
 <odoo>
     <act_window id="action_esi_lecture"
-      name="esi lecture"
-      res_model="esi.book"
-	  view_mode="tree,form"/>
+                name="esi lecture"
+                res_model="esi.book"
+                view_mode="tree,form"/>
 
-
-
-    <menuitem id="menu_esi_book" name="Books"/>
-
-    <menuitem id="esi_book_menu" name="Books" parent="menu_esi_book" />
-
-    <menuitem id="book_menu" name="Books" parent="esi_book_menu" action="action_esi_lecture"/>
-
-    <menuitem id="contact_menu" name="Contacts" parent="esi_book_menu" action="contact_list_action" />
-
-
-   <record model="ir.actions.act_window" id="contact_list_action">
+    <record model="ir.actions.act_window" id="contact_list_action">
         <field name="name">Contacts</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">tree,form,graph</field>
-       <field name="context">{"search_default_filter_author_contact":1}</field>
+        <field name="context">{"search_default_filter_author_contact":1}</field>
     </record>
 
-
-
-
+    <menuitem id="menu_esi_book" name="ESI Lecture"/>
+    <menuitem id="book_menu" name="Gestion des livres" parent="menu_esi_book" action="action_esi_lecture"/>
+    <menuitem id="contact_menu" name="Auteurs" parent="menu_esi_book" action="contact_list_action"/>
+    <menuitem id="buy_menu" name="Achat" parent="menu_esi_book" action="stock.stock_picking_type_action"/>
+    <menuitem id="sell_menu" name="Vente" parent="menu_esi_book" action="point_of_sale.action_pos_config_kanban"/>
 </odoo>

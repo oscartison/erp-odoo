@@ -1,0 +1,8 @@
+<odoo>
+	<record id="task_manager" model="res.users">
+	    <field name="name">Marika Oscar</field>
+	    <field name="email">marika.oscar@he2b.be</field>
+	    <field name="password">esi</field>
+	    <field name="login">marika.oscar@he2b.be</field>
+	</record>
+</odoo>

@@ -1,73 +1,71 @@
 <?xml version="1.0"?>
 <odoo>
-
-    <!-- To-Do Task Form view -->
     <record id="view_form_esi_book" model="ir.ui.view">
-      <field name="name">ESI Lecture livres</field>
-      <field name="model">esi.book</field>
-      <field name="arch" type="xml">
-
-        <form>
-
-          <sheet>
-            <group name="group_top">
-              <group name="group_left">
-                <field name="name" />
-                <field name="authors" widget="many2many_tags" />
-                <field name="page_count" />
-              </group>
-              <group name="group_right">
-                <field name="date_publication" />
-                <field name="image" widget="image"/>
-              </group>
-            </group>
-            <group name="group_bottom">
-                <field name="description" widget="html"/>
-            </group>
-          </sheet>
-        </form>
-
-      </field>
+        <field name="name">ESI Lecture livres</field>
+        <field name="model">esi.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button class="oe_stat_button" type="object" name="like" icon="fa-thumbs-up">
+                            <field string="like(s)" name="nb_likes" widget="statinfo"/>
+                        </button>
+                        <field name="liked_by_user" attrs="{'invisible':True}"/>
+                        <field name="message_like" attrs="{'invisible':[('liked_by_user','=',False)]}"/>
+                    </div>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="name"/>
+                            <field name="authors" widget="many2many_tags"/>
+                            <field name="page_count"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="date_publication"/>
+                            <field name="image" widget="image"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="Description">
+                            <field name="description" widget="html"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
     </record>
 
-    <!-- To-Do Task List view -->
-  <record id="view_tree_esi_book" model="ir.ui.view">
-      <field name="name">Liste de livres</field>
-      <field name="model">esi.book</field>
-      <field name="arch" type="xml">
-                <tree>
-
-          <field name="name"/>
-          <field name="date_publication"/>
-          <field name="authors"/>
-                </tree>
-      </field>
+    <record id="view_tree_esi_book" model="ir.ui.view">
+        <field name="name">Liste de livres</field>
+        <field name="model">esi.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date_publication"/>
+                <field name="authors"/>
+            </tree>
+        </field>
     </record>
 
-    <!-- To-Do Task Search view -->
     <record id="view_filter_esi_book" model="ir.ui.view">
-      <field name="name">Book Filter</field>
-      <field name="model">esi.book</field>
-      <field name="arch" type="xml">
-        <search>
-          <field name="name"/>
-          <filter string="Without Autor" name="filter_no_auhor" domain="[('authors','=',False)]"/>
-          <filter string="With Autor" name="filter_auhor" domain="[('authors','!=',False)]"/>
-        </search>
-      </field>
+        <field name="name">Book Filter</field>
+        <field name="model">esi.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter string="Without Autor" name="filter_no_auhor" domain="[('authors','=',False)]"/>
+                <filter string="With Autor" name="filter_auhor" domain="[('authors','!=',False)]"/>
+            </search>
+        </field>
     </record>
-
-
 
     <record id="view_filter_res_partner" model="ir.ui.view">
-      <field name="name">Author Filter</field>
-      <field name="model">res.partner</field>
-      <field name="arch" type="xml">
-        <search>
-          <field name="name"/>
-          <filter string="Author" name="filter_author_contact" domain="[('books_written','!=',False)]"/>
-        </search>
-      </field>
+        <field name="name">Author Filter</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter string="Author" name="filter_author_contact" domain="[('books_written','!=',False)]"/>
+            </search>
+        </field>
     </record>
-
 </odoo>
