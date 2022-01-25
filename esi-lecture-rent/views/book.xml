@@ -7,8 +7,6 @@
         <field name="inherit_id" ref="esi_lecture.view_form_esi_book"/>
          <field name="arch" type="xml">
             <field name="image" position="after">
-                <field name="rent_ids" widget="many2many_tags"/>
-
                 <field name="nb_rents"/>
             </field>
         </field>
