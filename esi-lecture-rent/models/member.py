@@ -5,4 +5,4 @@ class Member(models.Model):
     _inherit = 'res.partner'
     number = fields.Char(string="Matricule")
     member = fields.Boolean(default=False)
-    rent_ids = fields.Many2one('esi.book.rent', string='Livres empruntés')
+    rent_ids = fields.One2many('esi.book.rent', 'member_id', string='Livres empruntés')

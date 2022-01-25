@@ -4,8 +4,8 @@
         <field name="model">esi.book.rent</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="book_id" widget="many2many_tags"/>
-                <field name="member_id" widget="many2many_tags"/>
+                <field name="book_id" />
+                <field name="member_id" />
                 <field name="state"/>
                 <field name="return_date"/>
             </tree>
@@ -24,8 +24,8 @@
                 <sheet>
                     <group name="group_top">
                         <group name="group_left">
-                            <field name="book_id" widget="many2many_tags"/>
-                            <field name="member_id" widget="many2many_tags"/>
+                            <field name="book_id" />
+                            <field name="member_id" />
                         </group>
                         <group name="group_right">
                             <field name="rent_date"/>

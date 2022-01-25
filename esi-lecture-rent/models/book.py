@@ -3,7 +3,7 @@ from odoo import fields, models, api
 
 class Book(models.Model):
     _inherit = 'esi.book'
-    rent_ids = fields.Many2one('esi.book.rent', string='emprunts')
+    rent_ids = fields.One2many('esi.book.rent','book_id', string='emprunts')
     nb_rents = fields.Integer("Nombre d'emprunts", compute="_count_rents")
 
     @api.depends('likes')
