@@ -15,9 +15,17 @@ class Rent(models.Model):
     return_date = fields.Date(
         "Date de retour")
 
-    @api.constrains("book_id")
-    def check_rent(self):
-        for book in self.book_id:
-            for rent in book.rent_ids:
-                if rent.state != "retour":
-                    raise exceptions.ValidationError("Ce livre n'a pas encore été rendu !")
+    # @api.constrains("book_id")
+    # def check_rent(self):
+    #     for book in self.book_id:
+    #         for rent in book.rent_ids:
+    #             if rent.state != 'retour':
+    #                 raise exceptions.ValidationError("Ce livre n'a pas encore été rendu !")
+
+    def setRetour(self):
+        self.state = 'retour'
+
+    def setPerdu(self):
+        self.state = 'perdu'
+
+

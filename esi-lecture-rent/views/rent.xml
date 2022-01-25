@@ -18,6 +18,10 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button string="Livre perdu" type="object" name="setPerdu"
+                            attrs="{'invisible': [('state','!=','prete')]}" />
+                    <button string="Livre rendu" type="object" name="setRetour"
+                            attrs="{'invisible': [('state','=','retour')]}"/>
                     <field name="state" widget="statusbar"/>
                 </header>
 
