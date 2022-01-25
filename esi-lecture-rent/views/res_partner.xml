@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="my_inherited_view" model="ir.ui.view">
+        <field name="name">Add books to Partner Form</field>
+        <field name="model">res.partner</field>
+        <field name="priority">12</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+         <field name="arch" type="xml">
+            <field name="type" position="after">
+                <field name="number"/>
+                <field name="member"/>
+            </field>
+        </field>
+    </record>
+</odoo>

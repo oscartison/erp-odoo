@@ -3,7 +3,7 @@ from odoo import models, fields, api
 class ResPartner(models.Model):
     _inherit = 'res.partner'
     books_written = fields.Many2many('esi.book', string='liste de livres')
-    nb_books = fields.Integer(string="Nombre de livres", compute='_count_books', required=True, store=True)
+    nb_books = fields.Integer(string="Nombre de livres", compute='_count_books', required=True, store=True, default = 0)
 
     @api.depends('books_written')
     def _count_books(self):

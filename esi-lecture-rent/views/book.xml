@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="my_inherited_view_book" model="ir.ui.view">
+        <field name="name">Book from</field>
+        <field name="model">esi.book</field>
+        <field name="priority">15</field>
+        <field name="inherit_id" ref="esi_lecture.view_form_esi_book"/>
+         <field name="arch" type="xml">
+            <field name="image" position="after">
+                <field name="nb_rents"/>
+            </field>
+        </field>
+    </record>
+</odoo>

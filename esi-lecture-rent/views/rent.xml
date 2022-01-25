@@ -1,0 +1,52 @@
+<odoo>
+        <record id="view_tree_esi_rent" model="ir.ui.view">
+        <field name="name">Esi Rent Tree</field>
+        <field name="model">esi.book.rent</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="book_id" widget="many2many_tags"/>
+                <field name="member_id" widget="many2many_tags"/>
+                <field name="state"/>
+                <field name="return_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_form_esi_rent" model="ir.ui.view">
+        <field name="name">ESI rent Form</field>
+        <field name="model">esi.book.rent</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+
+                <sheet>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="book_id" widget="many2many_tags"/>
+                            <field name="member_id" widget="many2many_tags"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="rent_date"/>
+                            <field name="return_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <record id="view_filter_esi_rent" model="ir.ui.view">
+        <field name="name">Rent Filter</field>
+        <field name="model">esi.book.rent</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="state"/>
+                <filter string="Empruntés" name="filter_rented" domain="[('state','=','prete')]"/>
+                <filter string="Perdus" name="filter_lost" domain="[('state','!=','perdu')]"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <record model="ir.actions.act_window" id="action_rent">
+        <field name="name">Esi Lecture Rent</field>
+        <field name="res_model">esi.book.rent</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{"search_default_filter_rented":1}</field>
+    </record>
+
+    <menuitem id="menu_esi_rent"
+              name="Pret"
+              action="action_rent"
+              parent="esi_lecture.menu_esi_book"
+    groups="base.group_user"/>
+</odoo>
